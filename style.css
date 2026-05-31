@@ -1,6 +1,22 @@
 .tic-tac-toe-board{
     display: flex;
+    flex-direction: row;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
+
+}
+
+.gameBox {
+    background-color: aqua;
+    height: 5vh;
+    width: 5vh;
+}
+
+.rowBorder {
+    border-bottom: 4px solid black;
+}
+
+.columnBorder {
+    border-right: 4px solid black;
 }

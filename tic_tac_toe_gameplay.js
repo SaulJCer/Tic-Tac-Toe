@@ -5,4 +5,6 @@ function Player(name, marker) {
 }
 
 
-player
+// players of game
+// const playerX = new Player(prompt("enter your name"), "X");
+// const playerY = new Player(prompt("enter your name"), "Y");
