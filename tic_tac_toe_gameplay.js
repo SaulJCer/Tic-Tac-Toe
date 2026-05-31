@@ -14,6 +14,42 @@ function Gameboard(player1, player2) {
         }
     }
 
+        function checkIfWin (gameBoardArray) {
+        firstRowCond = (gameBoardArray[0] == "X" || gameBoardArray[0] == "Y")  
+        && ((gameBoardArray[0] == gameBoardArray[0]) && gameBoardArray[0] == gameBoardArray [2])
+
+        secondRowCond = (gameBoardArray[3] == "X" || gameBoardArray[3] == "Y")  
+        && ((gameBoardArray[3] == gameBoardArray[4]) && gameBoardArray[3] == gameBoardArray [5])
+
+        thirdRowCond = (gameBoardArray[6] == "X" || gameBoardArray[6] == "Y")  
+        && ((gameBoardArray[6] == gameBoardArray[7]) && gameBoardArray[6] == gameBoardArray [8])
+
+        firstColCond = (gameBoardArray[0] == "X" || gameBoardArray[0] == "Y")  
+        && ((gameBoardArray[0] == gameBoardArray[3]) && gameBoardArray[0] == gameBoardArray [6])
+
+        secondColCond = (gameBoardArray[1] == "X" || gameBoardArray[1] == "Y")  
+        && ((gameBoardArray[1] == gameBoardArray[4]) && gameBoardArray[1] == gameBoardArray [7])
+
+        thirdColCond = (gameBoardArray[2] == "X" || gameBoardArray[2] == "Y")  
+        && ((gameBoardArray[2] == gameBoardArray[5]) && gameBoardArray[2] == gameBoardArray [8])
+        
+        leftRightDiag = (gameBoardArray[0] == "X" || gameBoardArray[0] == "Y")  
+        && ((gameBoardArray[0] == gameBoardArray[4]) && gameBoardArray[0] == gameBoardArray [8])
+
+        RightLeftDiag = (gameBoardArray[2] == "X" || gameBoardArray[2] == "Y")  
+        && ((gameBoardArray[2] == gameBoardArray[4]) && gameBoardArray[2] == gameBoardArray [6])
+        
+        
+        if (firstRowCond || secondRowCond || thirdRowCond 
+            || firstColCond || secondColCond || thirdColCond
+            || leftRightDiag || RightLeftDiag
+        ) {
+            alert("SOMEONE WON.... now who won ???")
+        }
+
+    }
+
+
     const spot0 = document.getElementById("index0");
     const spot1 = document.getElementById("index1");
     const spot2 = document.getElementById("index2");
@@ -33,6 +69,7 @@ function Gameboard(player1, player2) {
         gameBoardArray[0] = currentPlayer.marker;
         // console.log(`This is index 0 value ${gameBoardArray[0]}`);
         nextPlayersTurn();
+        checkIfWin (gameBoardArray);
     });
     
     spot1.addEventListener("click", function (e) {
@@ -42,6 +79,7 @@ function Gameboard(player1, player2) {
         this.textContent = currentPlayer.marker; 
         gameBoardArray[1] = currentPlayer.marker;
         nextPlayersTurn();
+        checkIfWin (gameBoardArray);
     });
     spot2.addEventListener("click", function (e) {
         if (this.textContent != "") {
@@ -50,6 +88,7 @@ function Gameboard(player1, player2) {
         this.textContent = currentPlayer.marker; 
         gameBoardArray[2] = currentPlayer.marker;
         nextPlayersTurn();
+        checkIfWin (gameBoardArray);
     });
     spot3.addEventListener("click", function (e) {
         if (this.textContent != "") {
@@ -58,6 +97,7 @@ function Gameboard(player1, player2) {
         this.textContent = currentPlayer.marker; 
         gameBoardArray[3] = currentPlayer.marker;
         nextPlayersTurn();
+        checkIfWin (gameBoardArray);
     });
     spot4.addEventListener("click", function (e) {
         if (this.textContent != "") {
@@ -66,6 +106,7 @@ function Gameboard(player1, player2) {
         this.textContent = currentPlayer.marker; 
         gameBoardArray[4] = currentPlayer.marker;
         nextPlayersTurn();
+        checkIfWin (gameBoardArray);
     });
     spot5.addEventListener("click", function (e) {
         if (this.textContent != "") {
@@ -74,6 +115,7 @@ function Gameboard(player1, player2) {
         this.textContent = currentPlayer.marker; 
         gameBoardArray[5] = currentPlayer.marker;
         nextPlayersTurn();
+        checkIfWin (gameBoardArray);
     });
     spot6.addEventListener("click", function (e) {
         if (this.textContent != "") {
@@ -82,6 +124,7 @@ function Gameboard(player1, player2) {
         this.textContent = currentPlayer.marker; 
         gameBoardArray[6] = currentPlayer.marker;
         nextPlayersTurn();
+        checkIfWin (gameBoardArray);
     });
     spot7.addEventListener("click", function (e) {
         if (this.textContent != "") {
@@ -90,6 +133,7 @@ function Gameboard(player1, player2) {
         this.textContent = currentPlayer.marker; 
         gameBoardArray[7] = currentPlayer.marker;
         nextPlayersTurn();
+        checkIfWin (gameBoardArray);
     });
     spot8.addEventListener("click", function (e) {
         if (this.textContent != "") {
@@ -98,8 +142,10 @@ function Gameboard(player1, player2) {
         this.textContent = currentPlayer.marker; 
         gameBoardArray[8] = currentPlayer.marker;
         nextPlayersTurn();
-        console.log(gameBoardArray)
+        checkIfWin (gameBoardArray);
     });
+
+
 
     return gameBoardArray;
     
@@ -117,8 +163,10 @@ function Game() {
     const player2 = new Player("chicken", "Y")
     let newGameBoard = Gameboard(player1, player2);
 
-    
 
+
+
+    // checkIfWin(newGameBoard);
     console.log(newGameBoard);
 }
 
