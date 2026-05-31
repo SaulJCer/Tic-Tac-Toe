@@ -16,7 +16,7 @@ function Gameboard(player1, player2) {
 
         function checkIfWin (gameBoardArray) {
         firstRowCond = (gameBoardArray[0] == "X" || gameBoardArray[0] == "Y")  
-        && ((gameBoardArray[0] == gameBoardArray[0]) && gameBoardArray[0] == gameBoardArray [2])
+        && ((gameBoardArray[0] == gameBoardArray[1]) && gameBoardArray[0] == gameBoardArray [2])
 
         secondRowCond = (gameBoardArray[3] == "X" || gameBoardArray[3] == "Y")  
         && ((gameBoardArray[3] == gameBoardArray[4]) && gameBoardArray[3] == gameBoardArray [5])
@@ -44,7 +44,8 @@ function Gameboard(player1, player2) {
             || firstColCond || secondColCond || thirdColCond
             || leftRightDiag || RightLeftDiag
         ) {
-            alert("SOMEONE WON.... now who won ???")
+            
+            alert(`${currentPlayer.name} won congrats`)
         }
 
     }
@@ -68,8 +69,8 @@ function Gameboard(player1, player2) {
         // console.log("SPOT 0 was pressed");
         gameBoardArray[0] = currentPlayer.marker;
         // console.log(`This is index 0 value ${gameBoardArray[0]}`);
-        nextPlayersTurn();
         checkIfWin (gameBoardArray);
+        nextPlayersTurn();
     });
     
     spot1.addEventListener("click", function (e) {
@@ -78,8 +79,8 @@ function Gameboard(player1, player2) {
         }
         this.textContent = currentPlayer.marker; 
         gameBoardArray[1] = currentPlayer.marker;
-        nextPlayersTurn();
         checkIfWin (gameBoardArray);
+        nextPlayersTurn();
     });
     spot2.addEventListener("click", function (e) {
         if (this.textContent != "") {
@@ -87,8 +88,9 @@ function Gameboard(player1, player2) {
         }
         this.textContent = currentPlayer.marker; 
         gameBoardArray[2] = currentPlayer.marker;
-        nextPlayersTurn();
         checkIfWin (gameBoardArray);
+        nextPlayersTurn();
+        
     });
     spot3.addEventListener("click", function (e) {
         if (this.textContent != "") {
@@ -96,8 +98,9 @@ function Gameboard(player1, player2) {
         }
         this.textContent = currentPlayer.marker; 
         gameBoardArray[3] = currentPlayer.marker;
-        nextPlayersTurn();
         checkIfWin (gameBoardArray);
+        nextPlayersTurn();
+        
     });
     spot4.addEventListener("click", function (e) {
         if (this.textContent != "") {
@@ -105,8 +108,9 @@ function Gameboard(player1, player2) {
         }
         this.textContent = currentPlayer.marker; 
         gameBoardArray[4] = currentPlayer.marker;
-        nextPlayersTurn();
         checkIfWin (gameBoardArray);
+        nextPlayersTurn();
+        
     });
     spot5.addEventListener("click", function (e) {
         if (this.textContent != "") {
@@ -114,8 +118,8 @@ function Gameboard(player1, player2) {
         }
         this.textContent = currentPlayer.marker; 
         gameBoardArray[5] = currentPlayer.marker;
-        nextPlayersTurn();
         checkIfWin (gameBoardArray);
+        nextPlayersTurn();
     });
     spot6.addEventListener("click", function (e) {
         if (this.textContent != "") {
@@ -123,8 +127,9 @@ function Gameboard(player1, player2) {
         }
         this.textContent = currentPlayer.marker; 
         gameBoardArray[6] = currentPlayer.marker;
-        nextPlayersTurn();
         checkIfWin (gameBoardArray);
+        nextPlayersTurn();
+        
     });
     spot7.addEventListener("click", function (e) {
         if (this.textContent != "") {
@@ -132,8 +137,9 @@ function Gameboard(player1, player2) {
         }
         this.textContent = currentPlayer.marker; 
         gameBoardArray[7] = currentPlayer.marker;
-        nextPlayersTurn();
         checkIfWin (gameBoardArray);
+        nextPlayersTurn();
+        
     });
     spot8.addEventListener("click", function (e) {
         if (this.textContent != "") {
@@ -141,8 +147,9 @@ function Gameboard(player1, player2) {
         }
         this.textContent = currentPlayer.marker; 
         gameBoardArray[8] = currentPlayer.marker;
-        nextPlayersTurn();
         checkIfWin (gameBoardArray);
+        nextPlayersTurn();
+       
     });
 
 
