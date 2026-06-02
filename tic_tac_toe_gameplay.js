@@ -6,7 +6,7 @@ function Gameboard(player1, player2) {
 
     const resetButton = document.getElementById('resetBtn');
     resetButton.addEventListener("click", function (e) {
-        Game();
+        
         resetButton.classList.add("hiddenBtn");
         spot0.textContent = '';
         spot1.textContent = '';
@@ -18,6 +18,8 @@ function Gameboard(player1, player2) {
         spot7.textContent = '';
         spot8.textContent = '';
 
+        delete gameBoardArray;
+        Game();
     })
 
 
@@ -84,6 +86,7 @@ function Gameboard(player1, player2) {
 
     spot0.addEventListener("click", function (e) {
         if (this.textContent != "") {
+            console.log(this.textContent);
             return (alert("SPOT HAS BEEN SELECTED, please choose another"))
         }
         this.textContent = currentPlayer.marker; 
