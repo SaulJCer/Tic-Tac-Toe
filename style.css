@@ -21,3 +21,11 @@
     border-right: 4px solid black;
 }
 
+
+.hiddenBtn {
+    display: none;
+}
+
+.activeBtn {
+    
+}

@@ -2,7 +2,24 @@
 function Gameboard(player1, player2) {
     
 
-    const gameBoardArray= new Array(9);
+    let gameBoardArray= new Array(9);
+
+    const resetButton = document.getElementById('resetBtn');
+    resetButton.addEventListener("click", function (e) {
+        Game();
+        resetButton.classList.add("hiddenBtn");
+        spot0.textContent = '';
+        spot1.textContent = '';
+        spot2.textContent = '';
+        spot3.textContent = '';
+        spot4.textContent = '';
+        spot5.textContent = '';
+        spot6.textContent = '';
+        spot7.textContent = '';
+        spot8.textContent = '';
+
+    })
+
 
     currentPlayer = player1; 
     function nextPlayersTurn () {
@@ -46,6 +63,10 @@ function Gameboard(player1, player2) {
         ) {
             
             alert(`${currentPlayer.name} won congrats`)
+            
+            resetButton.classList.remove("hiddenBtn");
+            
+
         }
 
     }
@@ -166,8 +187,8 @@ function Player(name, marker) {
 
 function Game() {
 
-    const player1 = new Player("Rober", "X");
-    const player2 = new Player("chicken", "Y")
+    const player1 = new Player(prompt('PLAYER 1 NAME'), "X");
+    const player2 = new Player(prompt('PLAYER 2 NAME'), "Y")
     let newGameBoard = Gameboard(player1, player2);
 
 
