@@ -8,6 +8,7 @@ function Gameboard(player1, player2) {
     resetButton.addEventListener("click", function (e) {
         
         resetButton.classList.add("hiddenBtn");
+   
         spot0.textContent = '';
         spot1.textContent = '';
         spot2.textContent = '';
@@ -18,9 +19,19 @@ function Gameboard(player1, player2) {
         spot7.textContent = '';
         spot8.textContent = '';
 
-        delete gameBoardArray;
-        Game();
+        gameBoardArray[0] = '';
+        gameBoardArray[1] = '';
+        gameBoardArray[2] = '';
+        gameBoardArray[3] = '';
+        gameBoardArray[4] = '';
+        gameBoardArray[5] = '';
+        gameBoardArray[6] = '';
+        gameBoardArray[7] = '';
+        gameBoardArray[8] = '';
+        
     })
+
+
 
 
     currentPlayer = player1; 
@@ -58,7 +69,16 @@ function Gameboard(player1, player2) {
         RightLeftDiag = (gameBoardArray[2] == "X" || gameBoardArray[2] == "Y")  
         && ((gameBoardArray[2] == gameBoardArray[4]) && gameBoardArray[2] == gameBoardArray [6])
         
-        
+
+        let gameBoardArrayLength = gameBoardArray.length;
+        tieCondition = (
+            for (let i = 0; i < gameBoardArray; i++) {
+                if (gameBoardArray[i] == "") {
+                    return false;
+                }
+            }
+        )
+
         if (firstRowCond || secondRowCond || thirdRowCond 
             || firstColCond || secondColCond || thirdColCond
             || leftRightDiag || RightLeftDiag
@@ -70,6 +90,7 @@ function Gameboard(player1, player2) {
             
 
         }
+        
 
     }
 
