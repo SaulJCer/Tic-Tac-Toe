@@ -3,11 +3,13 @@ function Gameboard(player1, player2) {
     
 
     let gameBoardArray= new Array(9);
+    let markedSpotCounter = 0;
 
     const resetButton = document.getElementById('resetBtn');
     resetButton.addEventListener("click", function (e) {
         
         resetButton.classList.add("hiddenBtn");
+        markedSpotCounter = 0;
    
         spot0.textContent = '';
         spot1.textContent = '';
@@ -71,13 +73,13 @@ function Gameboard(player1, player2) {
         
 
         let gameBoardArrayLength = gameBoardArray.length;
-        tieCondition = (
-            for (let i = 0; i < gameBoardArray; i++) {
-                if (gameBoardArray[i] == "") {
-                    return false;
-                }
-            }
-        )
+        // tieCondition = (
+        //     for (let i = 0; i < gameBoardArray; i++) {
+        //         if (gameBoardArray[i] == "") {
+        //             return false;
+        //         }
+        //     }
+        // )
 
         if (firstRowCond || secondRowCond || thirdRowCond 
             || firstColCond || secondColCond || thirdColCond
@@ -88,12 +90,27 @@ function Gameboard(player1, player2) {
             
             resetButton.classList.remove("hiddenBtn");
             
-
+        } else {
+             for (let i = 0; i < gameBoardArrayLength; i++) {
+                if (gameBoardArray[i] == "X" || gameBoardArray[i] == 'Y' ) {
+                    console.log(gameBoardArray[i]);
+                    markedSpotCounter += 1;
+                }
+                console.log(markedSpotCounter);
+                
+            }
+            
+            if (markedSpotCounter == 9) {
+                alert(`ITS A TIE PLAY AGAIN`)
+            
+                resetButton.classList.remove("hiddenBtn");
+            }
+            markedSpotCounter = 0;
         }
-        
-
     }
 
+
+    
 
     const spot0 = document.getElementById("index0");
     const spot1 = document.getElementById("index1");
